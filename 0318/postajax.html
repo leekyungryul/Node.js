@@ -1,0 +1,38 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<body>
+  학생정보 입력<br>
+  이름 : <input type="text" id="stdName"><br>
+  나이 : <input type="text" id="stdAge"><br>
+  사는곳 : <input type="text" id="stdRegion"><br>
+  <input type="button" value="입력" id="postStdInfoBtn">
+</body>
+
+  <script type="text/javascript">
+    $("#postStdInfoBtn").click(function(){
+      console.log($("#stdName").val(),$("#stdAge").val(),$("#stdRegion").val());
+      $.ajax({
+       type: "POST",
+       //url: `/studentInfoPractice?no=` + $("#stdNo").val(),
+       url: `/student`,
+       data: {
+         name: $("#stdName").val(),
+         age: $("#stdAge").val(),
+         region: $("#stdRegion").val(),
+       },
+       success : function (res) {
+         console.log(res);
+    }
+
+    });
+  });
+
+  </script>
+</html>

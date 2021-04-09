@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+  <body>
+    1 : <input type="text" value="" id="first">
+    2 : <input type="text" value="" id="second"><br>
+    <input type="radio" name="선택" value="짝수" checked> 짝
+    <input type="radio" name="선택" value="홀수"  > 홀
+    <input type="radio" name="선택" value="모두"  > 올<br>
+    <input type="button" value="단계산" id = "Cal"><br>
+    <span id = "resultArea"></span>
+  </body>
+  <script>
+  $("#Cal").click(function(){
+    $("#resultArea").html("");
+    let checkedNum = $('input:radio[name="선택"]:checked').val();
+    let first = Number($("#first").val());
+    let second = Number($("#second").val());
+    if (checkedNum == "짝수"){
+      for(let i = 1; i <= second; i++){
+        if(i%2==0){
+          $("#resultArea").append(`${first} x ${i} = ${first * i}<br>`);
+        }
+      }
+    }
+    if (checkedNum == "홀수"){
+      for(let i = 1; i <= second; i++){
+        if(i%2==1){
+          $("#resultArea").append(`${first} x ${i} = ${first * i}<br>`);
+        }
+      }
+    }
+    if (checkedNum == "모두"){
+      for(let i = 1; i <= second; i++){
+          $("#resultArea").append(`${first} x ${i} = ${first * i}<br>`);
+      }
+    }
+  })
+
+  </script>
+</html>
