@@ -18,6 +18,8 @@
   <script>
   $("#Cal").click(function(){
     $("#resultArea").html("");
+    // ("");에 안넣으면 위에 내용으로 하고
+    // ("");에 텍스트를 넣으면 위에꺼 무시하고 텍스트가 result에 나온다.
     let checkedNum = $('input:radio[name="선택"]:checked').val();
     let first = Number($("#first").val());
     let second = Number($("#second").val());
