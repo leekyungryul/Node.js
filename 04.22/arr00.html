@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <body>
+    1번 가중치 : <input type="text" value="" id="first"><br>
+    0<input type="radio" name="radioname1" value = "0" checked>
+    1<input type="radio" name="radioname1" value = "1">
+    2<input type="radio" name="radioname1" value = "2">
+    3<input type="radio" name="radioname1" value = "3">
+    4<input type="radio" name="radioname1" value = "4"><br>
+    2번 가중치 : <input type="text" value="" id="second"><br>
+    0<input type="radio" name="radioname2" value = "0" checked>
+    1<input type="radio" name="radioname2" value = "1">
+    2<input type="radio" name="radioname2" value = "2">
+    3<input type="radio" name="radioname2" value = "3">
+    4<input type="radio" name="radioname2" value = "4"><br>
+    3번 가중치 : <input type="text" value="" id="third"><br>
+    0<input type="radio" name="radioname3" value = "0" checked>
+    1<input type="radio" name="radioname3" value = "1">
+    2<input type="radio" name="radioname3" value = "2">
+    3<input type="radio" name="radioname3" value = "3">
+    4<input type="radio" name="radioname3" value = "4"><br>
+    <input type="button" value="계산" id = "Calc"><br>
+    <span id = "resultArea"></span>
+  </body>
+  <script>
+  $("#Calc").click(function(){
+    $("#resultArea").html("");
+    let radioBtns1 = $('input[name="radioname1"]');
+    let radioBtns2 = $('input[name="radioname2"]');
+    let radioBtns3 = $('input[name="radioname3"]');
+    let first = Number($("#first").val());
+    let second = Number($("#second").val());
+    let third = Number($("#third").val());
+    let checkedNum1 = Number($('input:radio[name="radioname1"]:checked').val());
+    let checkedNum2 = Number($('input:radio[name="radioname2"]:checked').val());
+    let checkedNum3 = Number($('input:radio[name="radioname3"]:checked').val());
+    checkedNum1 * first + checkedNum2 * second + checkedNum3 + third
+    $("#resultArea").append(`${checkedNum1}x${first} + ${checkedNum2}x${second}
+      + ${checkedNum3}x${third}=
+      ${checkedNum1 * first + checkedNum2 * second + checkedNum3 * third}<br>`);
+})
+  </script>
+</html>

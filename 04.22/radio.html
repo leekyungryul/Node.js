@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-latest.min.js "></script>
+    <title></title>
+  </head>
+  <body>
+    1번
+    <br>
+    가중치 :
+    0 <input type="radio" name="r1" checked>
+    1 <input type="radio" name="r1">
+    2 <input type="radio" name="r1">
+    3 <input type="radio" name="r1">
+    4 <input type="radio" name="r1">
+    <br>
+    <input type="text" id="num1">
+    <br>
+    <br>
+    2번
+    <br>
+    가중치 :
+    0 <input type="radio" name="r2" checked>
+    1 <input type="radio" name="r2">
+    2 <input type="radio" name="r2">
+    3 <input type="radio" name="r2">
+    4 <input type="radio" name="r2">
+    <br>
+    <input type="text" id="num2">
+    <br>
+    <br>
+    3번
+    <br>
+    가중치 :
+    0 <input type="radio" name="r3" checked>
+    1 <input type="radio" name="r3">
+    2 <input type="radio" name="r3">
+    3 <input type="radio" name="r3">
+    4 <input type="radio" name="r3">
+    <br>
+    <input type="text" id="num3">
+    <br>
+    <br>
+    <input type="button" value="계산" id="calcBtn">
+    <span id="resultArea"></span>
+  </body>
+
+  <script>
+    $("#calcBtn").click(function(){
+      let num1 = Number($("#num1").val());
+      let num2 = Number($("#num2").val());
+      let num3 = Number($("#num3").val());
+
+      let rev1;
+      let radios1 = $('input[name="r1"]');
+      for(let i=0;i<radios1.length;i++) {
+        let radio = radios1[i];
+        if(radio.checked) {
+          rev1 = i;
+          break;
+        }
+      }
+
+      let rev2;
+      let radios2 = $('input[name="r2"]');
+      for(let i=0;i<radios2.length;i++) {
+        let radio = radios2[i];
+        if(radio.checked) {
+          rev2 = i;
+          break;
+        }
+      }
+
+      let rev3;
+      let radios3 = $('input[name="r3"]');
+      for(let i=0;i<radios2.length;i++) {
+        let radio = radios3[i];
+        if(radio.checked) {
+          rev3 = i;
+          break;
+        }
+      }
+
+      $("#resultArea").html(`${num1}*${rev1} +
+        ${num2}*${rev2} +
+        ${num3}*${rev3} =
+        ${num1*rev1 + num2*rev2 + num3*rev3}`)
+    });
+
+  </script>
+</html>

@@ -17,7 +17,11 @@ var connection = mysql.createConnection({
 connection.connect();
 
 app.get('/arr333', function(req, res) {
-  res.sendfile("arr.html");
+  res.sendfile("arr00.html");
+});
+
+app.get('/arr111', function(req, res) {
+  res.sendfile("짝수홀수.html");
 });
 
 app.get('/form10', function(req, res) {

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <body>
+    1<input type="radio" name="radioname" value = "1"><br>
+    2<input type="radio" name="radioname" value = "2"><br>
+    3<input type="radio" name="radioname" value = "3"><br>
+    4<input type="radio" name="radioname" value = "4"><br>
+    5<input type="radio" name="radioname" value = "5"><br>
+    6<input type="radio" name="radioname" value = "6"><br>
+    7<input type="radio" name="radioname" value = "7"><br>
+    8<input type="radio" name="radioname" value = "8"><br>
+    <input type="button" value="몇번째?" id = "choice"><br>
+  </body>
+  <script>
+  let radioBtns = $('input[name="radioname"]');
+
+    console.log($('input[name="radioname"]')[0].checked);
+    console.log($('input[name="radioname"]')[1].checked);
+    console.log($('input[name="radioname"]')[2].checked);
+    // console.log(radioBtns[3].checked;);
+    $("#choice").click(function(){
+    for(let j = 0; j < [name="radioname"].length; j++){
+      if(radioBtns[j].checked == true){
+        console.log(j+1 + "번째 버튼이 선택되었습니다.")
+      }
+    }
+})
+  //   $("#choice").click(function(){
+  //   let checkedNum = $('input:radio[name="radioname"]:checked').val();
+  //   for(let i = 1; i <= 8 ; i++){
+  //     if(checkedNum == i){
+  //       console.log(i+"번째가 선택되었습니다.");
+  //     }
+  //   }
+  // })
+  </script>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <body>
+    <input type="button" name="" id="a">
+  </body>
+  <script>
+    // $("#a").click(function(){
+    //   console.log(111);
+    // });
+    // let arr1 = [];
+    // let str = "짝"
+    // for(let i = 0; i < 9; i++){
+    //   a = i+1
+    //   if(a % 3 == 0){
+    //     arr1[i] = str;
+    //   }
+    //   else{
+    //     arr1[i] = a;
+    //   }
+    // }
+    // console.log(arr1);
+    //
+    // let arr2 = [];
+    // // let str = "짝"
+    // for(let i = 0; i < 9; i++){
+    //   a = i+1
+    //   if(a % 3 == 0){
+    //     arr2[i] = str;
+    //   }
+    //   else{
+    //     arr2[i] = a;
+    //   }
+    // }
+    // console.log(arr2);
+    //
+    // for(let i = 0; i < 10; i++){
+    //   for(let j = 0; j < 10; j++){
+    //     console.log(arr[i],arr[j]);
+    //   }
+    // }
+
+    // let str = "abcedf"
+    // console.log(str.length);
+
+    // for(var i = 0; i < 110; i++){
+    //   var str = ""+(i+1);
+    //   console.log(str);
+    // }
+
+//     for (var i = 0; i < 110; i++) {
+//         var str = "" + (i + 1);
+//         for (var j = 0; j < str.length; j++) {
+//
+//             if (str[j] == 3 || str[j] == 6 || str[j] == 9) {
+//                 str = "짝";
+//             }
+//         }
+//         console.log(str);
+// }
+
+// for (var i = 0; i < 500; i++) {
+//     var str = "" + (i + 1);
+//     let cnt = 0;
+//     for (var j = 0; j < str.length; j++) {
+//         if (str[j] == 3 || str[j] == 6 || str[j] == 9) {
+//             cnt++;
+//         }
+//         // console.log(cnt);
+//     }
+//     if(cnt==1){
+//       str = "짝";
+//     }
+//     if(cnt==2){
+//       str = "짝짝";
+//     }
+//     if(cnt==3){
+//       str = "짝짝짝";
+//     }
+//     console.log(str);
+// }
+
+for(let k = 1000; k < 1100; k++){
+  let number = k;
+  let numberString = number + "";
+
+  let jjakCount = 0;
+  for(let j = 0; j < numberString.length; j++){
+    if(numberString[j]%3==0 && numberString[j]!=0){
+      jjakCount++;
+    }
+  }
+  let jjakString = "";
+  if(jjakCount == 0){
+    console.log(numberString);
+  }
+  else{
+    for(let i = 0; i < jjakCount; i++){
+      jjakString += "짝"
+    }
+    console.log(jjakString);
+  }
+}
+    // }
+    // let arr2 = [];
+    // for(let i = 0; i < 9; i++){
+    //   arr2[i] = i+1;
+    // }
+    // console.log(arr2);
+
+
+    // for(let i = 1; i < 10; i ++){
+    //   for(let j = 1; j < 10; j++){
+    //
+    //   }
+    // }
+    //
+    // let str = "짝";
+    // for(let i = 0; i < 30; i++){
+    //   if(i > 20){
+    //     if(i % 3 == 2){
+    //       console.log(str);
+    //     } else {
+    //       console.log(i);
+    //     }
+    //   } else if(i > 10){
+    //         if(i % 3 == 1){
+    //           console.log(str);
+    //         } else{
+    //           console.log(i);
+    //         }
+    //       }
+    //   else{
+    //     if(i % 3 == 0){
+    //       console.log(str);
+    //     } else{
+    //       console.log(i);
+    //     }
+    //   }
+    // }
+    //   // else if(i > 10){
+      //   if(i % 3 == 1 ){
+      //     console.log(str);
+      //   } else{
+      //     console.log(i);
+      //   }
+      // }
+
+
+
+
+    // document.getElementById('a').addEventListener('click', function(){
+    //   console.log(1);
+    // })
+  // console.log(7);
+  // console.log(11);
+  // console.log(15);
+  // console.log(19);
+  // console.log(23);
+  // for(let i = 0; i < 5; i++){
+  //   let result = (4*i)+7;
+  //   console.log(result);
+  // }
+  // // y = 4x + 7;
+  // // 11 = a*1 +7;
+  // let arr = [];
+  // for(let i = 0; i < 5; i++){
+  //   arr[i] = i+1;
+  //   console.log(arr[i]);
+  // }
+  // console.log(arr);
+
+  // var arr1 = [];
+  // var arr2 = [];
+  // var arr3 = [];
+  // var arr4 = [];
+  //
+  // for(let i = 0; i < 10; i++){
+  //    arr1[i] = i+1;
+  // }
+  // console.log(arr1);
+  //
+  // for(let i = 0; i < 11; i++){
+  //   arr2[i] = i*2;
+  // }
+  // console.log(arr2);
+  //
+  // for(let i = 0; i < 7; i++){
+  //   a = i+1;
+  //   arr3[i] = `abc${i+1}`;
+  // }
+  // console.log(arr3);
+  //
+  // for(let i = 0; i < 9; i++){
+  //   arr4[i] = (i*3)+1;
+  // }
+  // console.log(arr4);
+
+  // let arr2 = [];
+  // for(let i = 0; i < 5; i++){
+  //   arr2[i] = [];
+  //   for(let j = 0; j < 5; j++){
+  //     let a = i+1;
+  //     let b = j+1;
+  //     arr2[i][j] = a*b;
+  //   }
+  // }
+  // console.log(arr2)
+  // console.log(arr2[1][0])
+
+
+  // let arr = [];
+  // arr[0] = 0;
+  // arr[1] = 1;
+  // arr[2] = 2;
+  </script>
+</html>
