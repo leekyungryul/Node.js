@@ -42,6 +42,7 @@ app.get('/form', function(req, res) {
 app.get('/getItem', function (req, res) {
   connection.query(`select * from item`,
     function(error, results, fields) {
+      // console.log(priceTable);
 
     let priceTable = results;
 
