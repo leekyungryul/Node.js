@@ -1,0 +1,56 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<body>
+  가격 : <input type="text" id="inputPrice">
+  <input type='button' value='확인' id="itemBtn"><br><br>
+  Item 정보입력<br><br>
+  itemName : <input type="text" id="name"><br><br>
+  itemPrice : <input type="text" id="price">
+  <input type="button" value="입력" id="itemInputBtn"><br><br>
+
+<br>
+<span id="resultArea"></span>
+  <script>
+
+    $("#itemBtn").click(function(){
+      $.ajax({
+       type: "GET",
+       //url: `/studentInfoPractice?no=` + $("#stdNo").val(),
+       url: `/getItem`,
+       // app.js에 있는 price와 동일한 변수명으로 해야하고
+       // id가 price인 입력값을 대입한다.
+       data: { price : $("#inputPrice").val()
+       },
+       success : function (res) {
+         alert(res);
+     }
+    });
+  });
+
+  $("#itemInputBtn").click(function(){
+    // console.log($("#title").val(),$("#content").val());
+    $.ajax({
+     type: "POST",
+     url: `/item`,
+     data: {
+       name: $("#name").val(),
+       price: $("#price").val(),
+     },
+     success : function (res) {
+       console.log(res);
+  }
+  });
+});
+
+
+  </script>
+</body>
+
+</html>

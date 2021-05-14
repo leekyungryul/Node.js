@@ -1,0 +1,56 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<body>
+  no1 : <input type="text" id="stdNo1">
+
+  <input type='button' value='버튼1' id="button1">
+<br>
+<span id="resultArea"></span>
+  <script>
+
+    $("#button1").click(function(){
+      $.ajax({
+       type: "GET",
+       //url: `/studentInfoPractice?no=` + $("#stdNo").val(),
+       url: `/studentInfoPractice`,
+       data: { no : $("#stdNo1").val()
+       },
+       success : function (res) {
+         console.log(res);
+         $("#resultArea").append(`${res[0].no} / ${res[0].name} / ${res[0].age}/ ${res[0].region}<br>`);
+     }
+    });
+  });
+
+  </script>
+  no2: <input type="text" id="stdNo2">
+
+  <input type='button' value='버튼2' id="button2">
+<br>
+<span id="resultArea1"></span>
+  <script>
+
+    $("#button2").click(function(){
+      $.ajax({
+       type: "GET",
+       //url: `/studentInfoPractice?no=` + $("#stdNo").val(),
+       url: `/studentInfoPractice1`,
+       data: { no : $("#stdNo2").val()
+       },
+       success : function (res) {
+         $("#resultArea1").append(`${res[0].no} / ${res[0].sub} / ${res[0].score}/ ${res[0].sex}<br>`);
+     }
+    });
+  });
+
+  </script>
+</body>
+
+</html>
