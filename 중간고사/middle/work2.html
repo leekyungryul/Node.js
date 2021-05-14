@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-latest.min.js "></script>
+    <title></title>
+  </head>
+  <body>
+    A
+    <br>
+    1 <input type="radio" name="r1" value=1 checked><br>
+    2 <input type="radio" name="r1" value=2> <br>
+    3 <input type="radio" name="r1" value=3><br>
+    4 <input type="radio" name="r1" value=4><br>
+    5 <input type="radio" name="r1" value=5><br>
+    6 <input type="radio" name="r1" value=6><br>
+    7 <input type="radio" name="r1" value=7><br>
+    8 <input type="radio" name="r1" value=8><br>
+    9 <input type="radio" name="r1" value=9><br>
+    10 <input type="radio" name="r1" value=10><br>
+
+    <br>
+    B
+    <br>
+    1 <input type="radio" name="r2" value=1 checked><br>
+    2 <input type="radio" name="r2" value=2><br>
+    3 <input type="radio" name="r2" value=3><br>
+    4 <input type="radio" name="r2" value=4><br>
+    5 <input type="radio" name="r2" value=5><br>
+    6 <input type="radio" name="r2" value=6><br>
+    7 <input type="radio" name="r2" value=7><br>
+    8 <input type="radio" name="r2" value=8><br>
+    9 <input type="radio" name="r2" value=9><br>
+    10 <input type="radio" name="r2" value=10><br>
+
+    <br>
+    C
+    <br>
+    1 <input type="radio" name="r3" value=1 checked><br>
+    2 <input type="radio" name="r3" value=2 ><br>
+    3 <input type="radio" name="r3" value=3><br>
+    4 <input type="radio" name="r3" value=4><br>
+    5 <input type="radio" name="r3" value=5><br>
+    6 <input type="radio" name="r3" value=6><br>
+    7 <input type="radio" name="r3" value=7><br>
+    8 <input type="radio" name="r3" value=8><br>
+    9 <input type="radio" name="r3" value=9><br>
+    10 <input type="radio" name="r3" value=10><br>
+
+    <br>
+    <input type="button" value="계산" id="calcBtn">
+    <span id="resultArea"></span>
+  </body>
+
+  <script>
+  // 2. work2.html
+  // 1~10사이의 라디오버튼 그룹 3개를 통해
+  // 숫자 3개를 입력받아 출력 버튼 클릭시 그 중 가장큰수^가장작은수 의 값을 console에 출력하세요
+  // (ex. 4 9 2 -> 9^2 = 81, console에 81만 출력)
+    $("#calcBtn").click(function(){
+      let checkedNumA = Number($('input:radio[name="r1"]:checked').val());
+      let checkedNumB = Number($('input:radio[name="r2"]:checked').val());
+      let checkedNumC = Number($('input:radio[name="r3"]:checked').val());
+
+      console.log(Math.pow(Math.max(checkedNumA,checkedNumB,checkedNumC),
+                  Math.min(checkedNumA,checkedNumB,checkedNumC)));
+
+    });
+
+  </script>
+</html>

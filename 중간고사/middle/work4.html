@@ -1,0 +1,58 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<body>
+  학생정보 입력<br>
+  학번 : <input type="text" id="studentNo"><br>
+  이름 : <input type="text" id="studentName"><br><br>
+  <input type="button" value="입력" id="postStdInfoBtn"><br><br><br>
+  <!-- 뉴스정보 입력<br>
+  제 목 : <input type="text" id="title"><br><br>
+  내 용 : <textarea id="content" rows="8" cols="40"></textarea><br>
+  <input type="button" value="입력" id="postNewsInfoBtn"> -->
+</body>
+  <script>
+    $("#postStdInfoBtn").click(function(){
+      console.log($("#studentNo").val(),$("#studentName").val());
+      $.ajax({
+       type: "POST",
+       //url: `/studentInfoPractice?no=` + $("#stdNo").val(),
+       url: `/student`,
+       data: {
+         number: $("#studentNo").val(),
+         name: $("#studentName").val(),
+       },
+       success : function (res) {
+         console.log(res);
+         if(res=='not ok'){
+           alert("입력실패")
+         }
+         else if(res=='ok'){
+           alert("입력성공");
+         }
+    }
+    });
+  });
+
+
+  //   $("#postNewsInfoBtn").click(function(){
+  //     console.log($("#title").val(),$("#content").val());
+  //     $.ajax({
+  //      type: "POST",
+  //      url: `/news`,
+  //      data: {
+  //        title: $("#title").val(),
+  //        content: $("#content").val(),
+  //      },
+  //      success : function (res) {
+  //        console.log(res);
+  //   }
+  //   });
+  // });
+  </script>
+</html>

@@ -1,0 +1,35 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<body>
+  정보 입력<br>
+  제 목 : <input type="text" id="title1"><br>
+  내 용 : <input type="text" id="content1"><br>
+  <input type="button" value="입력" id="newsInput">
+</body>
+
+  <script type="text/javascript">
+    $("#newsInput").click(function(){
+      console.log($("#title1").val(),$("#content1").val());
+      $.ajax({
+       type: "POST",
+       //url: `/studentInfoPractice?no=` + $("#stdNo").val(),
+       url: `/student1`,
+       data: {
+         title: $("#title1").val(),
+         content: $("#content1").val(),
+       },
+       success : function (res) {
+         console.log(res);
+    }
+    });
+  });
+
+  </script>
+</html>

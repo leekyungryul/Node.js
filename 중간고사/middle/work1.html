@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+  <body>
+    1 : <input type="text" value="" id="first"><br>
+    2 : <input type="text" value="" id="second"><br>
+    <input type="button" value="출력" id = "Cal"><br>
+    <span id = "resultArea"></span>
+  </body>
+  <script>
+  // 1. work1.html
+  // 숫자 2개를 input text 2개를 통해 입력받아 출력 버튼 클릭시
+  // 두 숫자의 합, 차(절대값, 무조건 양수), 곱, 나눗셈(큰 수를 작은 수로 나눈 값)을
+  // console에 출력하세요
+  // (ex 2, 6입력시 console에
+  // 더하기 : 8, 빼기 : 4, 곱하기 : 12, 나누기 : 3
+  // 출력)
+  // (ex 8, 2입력시 console에
+  // 더하기 : 10, 빼기 : 6, 곱하기 : 16, 나누기 : 4
+  // 출력)
+  $("#Cal").click(function(){
+    $("#resultArea").html("");
+    let first = Number($("#first").val());
+    let second = Number($("#second").val());
+    $("#resultArea").append(`${first} + ${second} = ${first + second}<br>`);
+    $("#resultArea").append(`${Math.max(first, second)} - ${Math.min(first, second)}
+    = ${Math.max(first, second) - Math.min(first, second)}<br>`);
+    $("#resultArea").append(`${first} * ${second} = ${first * second}<br>`);
+    // $("#resultArea").append(`${Math.max(first, second)} / ${Math.min(first, second)}
+    // = ${Math.max(first, second) / Math.min(first, second)}<br>`);
+    // 소수점 3자리까지만 나오게 했습니다.
+    $("#resultArea").append(`${Math.max(first, second)} / ${Math.min(first, second)}
+    = ${(Math.max(first, second) / Math.min(first, second)).toFixed(3)}<br>`);
+
+  })
+
+  </script>
+</html>
