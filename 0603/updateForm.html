@@ -1,0 +1,77 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<body>
+
+  Item 정보입력<br><br>
+  itemName : <input type="text" id="name"><br><br>
+  itemPrice : <input type="text" id="price"><br><br>
+  <input type="button" value="수정" id="itemUpdateBtn" ><br><br>
+  <input type="button" value="돌아가기" id="goToMainPage"><br><br>
+</body>
+<script>
+// url변수에 url을 담아준다.
+ let url = location.href;
+ // url을 인덱싱해서 각 정보를 변수에 담는다.
+ let no1 = url.split("?")[1].split("=")[1];
+ let name1 = url.split("?")[2].split("=")[1];
+ let price1 = url.split("?")[3].split("=")[1];
+ console.log(url.split("?")[1].split("=")[1]);
+ console.log(url.split("?")[2].split("=")[1]);
+ console.log(url.split("?")[3].split("=")[1]);
+
+ // $("#name").val(name1);
+ // $("#price").val(price1);
+  $.ajax({
+    type: "get",
+    url: `/updateSelect`,
+    data: {
+      no : Number(no1),
+    },
+    success: function(res) {
+        let item = res[0];
+        // {no: 3, itemName: "item323232", itemPrice: 1}
+        // 첫번째 행을 뽑아야 위와같이 딕셔너리형으로 뽑아낼 수 있다.
+        console.log(item);
+        // name입력칸에 축출된 itemName을 입력하고
+        $("#name").val(`${item.itemName}`);
+        // price입력칸에 축출된 itemPrice를 입력한다.
+        $("#price").val(`${item.itemPrice}`);
+      }
+  });
+// 수정버튼을 누르면 아래를 실행한다.
+  $("#itemUpdateBtn").click(function() {
+    $.ajax({
+      type: "PUT",
+      url: `/updateItem`,
+      data: {
+        // name입력칸에 입력된 내용을 name변수에 담아주고
+        name: $("#name").val(),
+        // price입력칸에 입력된 내용을 price변수에 담아주고
+        price: $("#price").val(),
+        // no는 위에서 받아낸 번호를 서버에 제공한다.
+        no : Number(no1),
+      },
+      success: function(res) {
+        if (res == "ok") {
+          alert("수정되었습니다.")
+          location.href = "/form";
+        }
+        else {
+          alert(res);
+        }
+      }
+    });
+  });
+  // $("#resultArea").append(`${first} + ${second} = ${first + second}<br>`);
+
+
+  $("#goToMainPage").click(function() {
+    location.href = "/form";
+  });
+</script>
+</html>

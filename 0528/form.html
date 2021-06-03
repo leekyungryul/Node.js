@@ -1,0 +1,47 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<body>
+  <span id="resultArea"></span>
+  가격 : <input type="text" id="price">
+  <input type='button' value='확인' id="itemBtn"><br><br>
+  <input type='button' value='목록' id="gotoListForm"><br><br>
+  <input type="button" value="입력페이지" id="gotoInsertForm"><br><br>
+</body>
+<script>
+// 확인 버튼을 클릭하면 아래실행
+  $("#itemBtn").click(function() {
+    $.ajax({
+      // get방식으로
+      type: "GET",
+      // 컨트롤러에서 대기중인 url
+      url: `/getItem`,
+      // json형식의 데이터
+      data: {
+        price: $("#price").val()
+      },
+      success: function(res) {
+        alert(res);
+      }
+    });
+  });
+
+
+  // 입력페이지를 누르면 insertForm으로 이동한다.
+  $("#gotoInsertForm").click(function() {
+    // console.log($("#title").val(),$("#content").val());
+    location.href = "/insertform";
+  });
+
+  $("#gotoListForm").click(function() {
+    location.href = "/listform";
+  });
+</script>
+
+
+</html>

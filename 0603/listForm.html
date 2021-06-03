@@ -1,0 +1,67 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<body>
+  <div id="listArea">
+  </div>
+  <input type="button" value="돌아가기" id="goToMainPage"><br><br>
+</body>
+<script>
+    $.ajax({
+      type: "get",
+      url: `/getlist`,
+      data: {
+      },
+      // res는 응답받은 데이터이다.
+      success: function(res) {
+        // 응답받은 데이터의 길이만큼
+        // 여기서는 itemPric별로 정렬된 모든 품목이될것이다.
+        // 품목의 숫자만큼 반복을 한다.
+        for(let i = 0; i < res.length; i++){
+          // item변수에 한줄씩 데이터를 담고
+          let item = res[i];
+          // listArea에 각 정보를 붙인다.
+          // 삭제하기 버튼을 하나 생성해준다(id는 item.no이고 클릭하면 item.no를 파라미터로 가지는 deleteItem함수가 실행이 될 수있도록)
+          // 불러온 데이터 한줄에 id를 부여해준다.(id="item+item.no") / 부여해준 id는 client에게 보여지지 않는다.
+          $("#listArea").append(`<span id="item${item.no}">\
+                              ${item.itemName}: ${item.itemPrice}
+                              <input type="button" onclick="deleteItem(${item.no})" id="${item.no}" value="삭제하기"> </a>
+            <a href=update?no=${item.no}?itemName=${item.itemName}?itemPrice=${item.itemPrice} >수정하기</a><br></span>`);
+        }
+      }
+    });
+    // functin goToUpdateForm(no){
+    //
+    // }
+    function deleteItem(no) {
+        $.ajax({
+          // delete타입으로
+          type: "delete",
+          url: `/deletelist`,
+          data: {
+            // no에는 파라미터로 들어온 no를 맵핑시키고
+            no: no,
+          },
+          success: function(res) {
+            // res로 ok가 들어오면
+            if(res=='ok'){
+              // alert창에 ""삭제되었습니다" 출력
+              alert("삭제되었습니다.");
+              // 삭제하기 버튼에 붙어있는 id를 호출해서 밸류값을 지운다.
+              $(`#item${no}`).remove();
+            }
+            // res로 error이 들어오게되면
+            else if (res=='error') {
+              // alert창에 에러가 발생했습니다.출력
+              alert("에러가 발생했습니다.");
+            }
+          }
+        });
+    }
+
+</script>
+</html>

@@ -1,0 +1,40 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<body>
+  Item 정보입력<br><br>
+  itemName : <input type="text" id="name"><br><br>
+  itemPrice : <input type="text" id="price"><br><br>
+  <input type="button" value="입력" id="itemInputBtn"><br><br>
+  <input type="button" value="돌아가기" id="goToMainPage"><br><br>
+</body>
+<script>
+  $("#itemInputBtn").click(function() {
+    $.ajax({
+      type: "POST",
+      url: `/insertItem`,
+      data: {
+        name: $("#name").val(),
+        price: $("#price").val(),
+      },
+      success: function(res) {
+        if (res == "ok") {
+          alert("입력되었습니다.")
+          location.href = "/form";
+        }
+        else {
+          alert(res);
+        }
+      }
+    });
+  });
+
+  $("#goToMainPage").click(function() {
+    location.href = "/form";
+  });
+</script>
+</html>

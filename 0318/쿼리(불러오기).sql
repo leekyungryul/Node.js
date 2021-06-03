@@ -1,1 +1,2 @@
-SELECT * FROM 학생정보
+SELECT * FROM item
+itemitemitem
